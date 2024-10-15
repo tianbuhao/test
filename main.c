@@ -1,30 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <Windows.h>
-#include <math.h>//可以用来计算平方,平方用sqrt int k=(int)sqrt((double)m) 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-//输入一行字符请统计出其中英文字符,空格数,数字,以及其他字符 
-int main(){
-	char c;
-	int letter=0;
-	int number=0;
-	int sum=0;
-	c=getchar();
-	while(c!='\n'){
-		if(c>='a'&&c<='z'||c>='A'&&c<='Z'){//原理就是应用ASC||码 
-			letter++;
-		}else if(c>='0'&&c<='9'){ 
-			number++;
-		}else if(c=' '){
-			sum++;
+//请输出101到200中所有的素数,并说出有多少个.
+//要想找出所有的素数,就必须保证他只能被1和自己整除,所以我们可以先用for循环找出所有的所有的数
+//然后再让他们除以比他小的所有数,如果不能整除,就说明他是一个素数.
+int primenumber(int a){
+int i;
+for(i=2;i<=a;i++){
+			if(a%i==0){ 
+				break;//这里因为能够整除,所以跳出循环; 
+			}
 		}
-		printf("%c",c);
-		c=getchar();//getchar只能输入一个字符,因此要多次循环; 
+	if(a==i){//但是也有可能是到最后a=i;结束循环,这时a是一个质数; 
+		return a;
+	}else {
+		return 0;
 	}
-	printf("\n英文字符有%d个\n",letter);
-	printf("数字有%d个\n",number);
-	printf("空格有%d个\n",sum);
-	return 0;
 }
+int main(){
+	int primenumber(int a);
+	int a,i,number;
+	number=0;
+	for(a=101;a<=200;a++){
+		if(a==primenumber(a)){
+		printf("%d是一个质数\n",a);
+		number++;
+		}
+	}
+	printf("101到200一共有%d个质数",number);
+
+	
+	
+		
+	
+	return 0;
+} 
 
 
