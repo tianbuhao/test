@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <Windows.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+//请统计一行字符中的字母个数,数字个数,以及空格数
+int main(){
+	char c=getchar();
+	int letter=0;
+	int number=0;
+	int sum=0;
+	while(c!='\n'){
+		if(c>='a'&&c<='z'||c>='A'&&c<='Z'){
+			letter++;
+		}else if(c>='0'&c<='9'){
+			number++;
+		}else if(c=' '){
+			sum++;
+		}
+		printf("%c",c);
+		c=getchar();//相当于停止符号,如果没有这个会一直进行while循环下去 
+	}
+	printf("\n一共有%d个字符\n",letter+number+sum);
+	printf("一共有%d个字母\n",letter);
+	printf("一共有%d个数字\n",number);
+	printf("一共有%d个空格\n",sum);
+	return 0;
+} 
